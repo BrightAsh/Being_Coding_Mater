@@ -1,11 +1,10 @@
 def solution(routes):
-    r = sorted(routes, key = lambda x: (x[1]))
-    
+    r = sorted(routes, key = lambda x: (x[1],x[0]))
     cnt=1
     a=r[0][1]
     print(r)
-    for idx in range(1,len(routes)):
-        if a<r[idx][0]:
-            a=r[idx][1]
+    for s,e in r[1:]:
+        if a<s:
+            a=e
             cnt+=1
     return cnt
